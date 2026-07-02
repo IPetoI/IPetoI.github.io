@@ -1,0 +1,331 @@
+/**
+ * PROJECT CARDS STYLES
+ * ------------------------------------------------
+ * Project gallery grid layout with hover effects,
+ * scroll-triggered reveal animations,
+ * and the project timeline.
+ */
+
+/*
+ * --- Project cards component ----------------------------
+ */
+.project-card {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 194, 168, 0.1) 0%,
+    rgba(255, 107, 107, 0.05) 100%
+  );
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.12);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  border: 1px solid rgba(0, 194, 168, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: fade-in-up 0.6s ease-out backwards;
+  width: 100%;
+}
+
+.project-card:hover {
+  box-shadow: 0 6px 10px rgba(0, 158, 194, 0.3);
+  border-color: rgba(0, 158, 194, 0.3);
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--color-green) 0%,
+    var(--color-ocean) 100%
+  );
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: 10;
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.03);
+}
+
+.project-info {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-info h3 {
+  color: var(--color-ocean);
+  font-size: 1.3rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.project-card:hover .project-info h3 {
+  color: #006089;
+}
+
+.project-info p {
+  color: #a0a0b8;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.project-info a {
+  display: block;
+  color: var(--color-ocean);
+  text-decoration: none;
+  padding-top: 10px;
+  width: fit-content;
+}
+
+.project-info a:hover {
+  text-decoration: underline;
+  color: var(--color-teal);
+}
+
+/*
+ * Scroll reveal animations for project cards and timeline elements.
+ * These elements will fade in and slide up when they become visible in the viewport.
+ * The .visible class is added by the ui.js script when the element is scrolled into view.
+ */
+.reveal,
+.project-card,
+.timeline-year,
+.timeline-note {
+  opacity: 0;
+  transform: translateY(60px);
+  transition:
+    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.visible,
+.project-card.visible,
+.timeline-year.visible,
+.timeline-note.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/**
+ * TIMELINE LAYOUT
+ * ------------------------------------------------
+ * Vertical study/project timeline.
+ * Left side bar with year markers, right side
+ * project card groups (1-2 per row,
+ * 3rd centered below).
+ */
+
+.timeline {
+  position: relative;
+  margin-top: 3rem;
+  padding-left: 64px;
+}
+
+/* Függőleges vezetősáv */
+.timeline-line {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 22px;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--color-green);
+  overflow: hidden;
+}
+
+/*
+ * Years block: dot + label + project grid
+ */
+.timeline-year {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.timeline-year:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -52px;
+  transform: translateY(6px);
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: var(--color-navy, #0b1220);
+  border: 3px solid var(--color-ocean);
+  box-shadow: 0 0 0 4px rgba(58, 195, 237, 0.12);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.timeline-year:hover .timeline-dot {
+  transform: scale(1.2) translateY(4px);
+  box-shadow: 0 0 0 6px rgba(58, 195, 237, 0.2);
+}
+
+.timeline-dot--current {
+  animation: pulse-current 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse-current {
+  0%,
+  100% {
+    box-shadow: 0 0 0 4px rgba(58, 195, 237, 0.18);
+  }
+  50% {
+    box-shadow: 0 0 0 9px rgba(58, 195, 237, 0.1);
+  }
+}
+
+.timeline-year-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1.2rem;
+}
+
+/*
+ * Project groups within a year
+ * 1-2 cards side by side; the 3rd card
+ * appears centered in its own row.
+ */
+.timeline-projects {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 400px));
+  gap: 1.5rem;
+}
+
+.project-card--centered {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+/*
+ * 2025: Empty year note
+ */
+.timeline-note {
+  display: block;
+  align-items: flex-start;
+  text-align: center;
+  padding: 1.2rem 1.4rem;
+  border-radius: 14px;
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.03);
+  color: #a0a0b8;
+  max-width: 480px;
+}
+
+.timeline-note i {
+  font-size: 1.4rem;
+  color: var(--color-ocean);
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.timeline-note p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/*
+ * Milestone nodes: start / course change / diploma
+ * Same dot style, just with a label.
+ */
+.timeline-node-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding-top: 0.05rem;
+}
+
+.timeline-node-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-ocean);
+}
+
+.timeline-node-sub {
+  font-size: 0.95rem;
+  color: #a0a0b8;
+}
+
+/*
+ * Responsive: the bar stays on the left, the cards
+ * stack in a single column next to it
+ */
+@media (max-width: 820px) {
+  .timeline-projects {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-card--centered {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 700px) {
+  .timeline {
+    padding-left: 48px;
+  }
+
+  .timeline-line {
+    left: 16px;
+  }
+
+  .timeline-dot {
+    left: -42px;
+  }
+
+  .timeline-projects {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .project-card--centered {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .timeline-year-label {
+    font-size: 1.2rem;
+  }
+}

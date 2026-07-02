@@ -1,0 +1,986 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      data-i18n="meta.description"
+      content="Pető József web portfóliója"
+    />
+    <meta
+      name="keywords"
+      content="Pető József, portfólió, webfejlesztés,
+                                  programozás, projektek, szakdolgozat, önéletrajz"
+    />
+
+    <title data-i18n="page.title">Portfólió PJ</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="../assets/icon2.webp" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- SPLASH SCREEN: initial loading screen with animated particles -->
+    <div class="splash-screen" id="splashScreen">
+      <div class="splash-content">
+        <div class="splash-logo">
+          <div class="logo-circle"></div>
+          <h1 class="splash-title" data-i18n="hero.name">Pető József</h1>
+        </div>
+        <p class="splash-subtitle" data-i18n="splash.subtitle">
+          Portfólió oldal
+        </p>
+        <div class="splash-loader">
+          <div class="loader-bar"></div>
+        </div>
+      </div>
+      <div class="splash-particles"></div>
+    </div>
+
+    <!-- Floating background shapes -->
+    <div class="bg-particles" id="bgParticles" aria-hidden="true"></div>
+
+    <!-- HEADER: sticky navigation with responsive menu and language switcher -->
+    <header class="main-header">
+      <div class="header-inner">
+        <div class="logo">
+          <img
+            src="../assets/icon.webp"
+            alt="Icon"
+            class="logo-glow"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
+        </div>
+
+        <button
+          id="hamburgerMenu"
+          class="hamburger-menu"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <button
+          class="lang-toggle lang-toggle-mobile"
+          aria-label="Switch language"
+        >
+          EN
+        </button>
+
+        <nav class="navbar" id="navMenu">
+          <ul>
+            <li>
+              <a href="#portfolio" data-i18n="nav.portfolio">Önéletrajz</a>
+            </li>
+            <li><a href="#works" data-i18n="nav.works">Projektek</a></li>
+            <li><a href="#thesis" data-i18n="nav.thesis">Szakdolgozat</a></li>
+            <li>
+              <a href="#courses" data-i18n="nav.courses">Coursera kurzusok</a>
+            </li>
+            <li><a href="#contact" data-i18n="nav.contact">Kapcsolat</a></li>
+          </ul>
+
+          <button
+            class="lang-toggle lang-toggle-desktop"
+            aria-label="Switch language"
+          >
+            EN
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO: profile picture and introduction text -->
+      <section class="hero-section">
+        <div class="hero-left">
+          <img
+            src="../assets/user_photo.webp"
+            alt="Profilkép"
+            class="hero-pic-large"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="hero-right">
+          <h1>
+            <span class="hero-gradient-text" data-i18n="hero.name"
+              >Pető József</span
+            >
+          </h1>
+          <p data-i18n="hero.paragraph">
+            <span class="highlight">Programtervező informatikus</span> vagyok,
+            aki folyamatosan bővíti szakmai ismereteit
+            <span class="highlight">online képzéseken</span> keresztül.
+            Tanulmányaim során több projektben szereztem
+            <span class="highlight">gyakorlati tapasztalatot</span> különböző
+            technológiákkal. Célom, hogy mesterképzésen folytassam a
+            tanulmányaimat, amelyet
+            <span class="highlight">duális képzésben</span> szeretnék elvégezni.
+          </p>
+        </div>
+      </section>
+
+      <!-- RESUME: CV preview and download link -->
+      <section id="portfolio" class="portfolio-section reveal about-section">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="section.resume">Önéletrajz</h2>
+          <div class="title-underline"></div>
+        </div>
+        <div class="portfolio-content">
+          <img
+            src="../assets/CV/CV_HU.webp"
+            data-i18n-src="cv.image"
+            alt="Önéletrajz előnézet"
+            class="cv-img-preview"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
+          <a
+            href="../assets/CV/Pető_József_CV.pdf"
+            data-i18n-href="cv.download.file"
+            download
+            class="cta-btn"
+            data-i18n="resume.download"
+          >
+            Önéletrajz letöltése
+          </a>
+        </div>
+      </section>
+
+      <!-- PROJECTS: yearly timeline, each card opens a project gallery -->
+      <section id="works" class="works-section reveal">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="section.projects">Projektek</h2>
+          <div class="title-underline"></div>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-line" id="timelineLine"></div>
+
+          <div class="timeline-year">
+            <div class="timeline-dot"></div>
+            <span class="timeline-year-label">2019</span>
+
+            <div class="timeline-year">
+              <div class="timeline-dot"></div>
+              <div class="timeline-node-label">
+                <span
+                  class="timeline-node-title"
+                  data-i18n="timeline.start.title"
+                  >Egyetemi tanulmányok kezdete</span
+                >
+                <span class="timeline-node-sub" data-i18n="timeline.start.sub"
+                  >Mérnökinformatikus BSc</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-year">
+            <div class="timeline-dot"></div>
+            <span class="timeline-year-label">2020</span>
+
+            <div class="timeline-projects">
+              <div
+                class="project-card"
+                data-gallery="../assets/Projekts/VTK/1.webp|../assets/Projekts/VTK/2.webp|../assets/Projekts/VTK/3.webp|../assets/Projekts/VTK/4.webp|../assets/Projekts/VTK/5.webp"
+              >
+                <img
+                  src="../assets/Projekts/VTK/1.webp"
+                  alt="Városi Tömegközlekedés projekt"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="project-info">
+                  <h3 data-i18n="proj.transport">Városi Tömegközlekedés</h3>
+                  <p>JavaFX • MySQL • JDBC</p>
+                  <a style="display: none" data-i18n="proj.transport.desc">
+                    Egy közlekedési adatkezelő rendszer, ahol több város
+                    járműhálózata böngészhető és szerkeszthető. A felhasználó
+                    kezelheti a járatokat, megállókat és jegy árakat, így egy
+                    komplett városi közlekedési struktúra felépíthető és
+                    karbantartható.
+                  </a>
+                </div>
+              </div>
+              <div
+                class="project-card"
+                data-gallery="../assets/Projekts/FRI/1.webp|../assets/Projekts/FRI/2.webp|../assets/Projekts/FRI/3.webp|../assets/Projekts/FRI/4.webp|../assets/Projekts/FRI/5.webp"
+              >
+                <img
+                  src="../assets/Projekts/FRI/1.webp"
+                  alt="Friends projekt"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="project-info">
+                  <h3 data-i18n="proj.fri">
+                    (Friends) Central Perk kávézó weboldal
+                  </h3>
+                  <p>HTML • CSS • JavaScript • PHP</p>
+                  <a style="display: none" data-i18n="proj.fri.desc">
+                    Egy weboldal egy ismert sorozat híres helyének (Central
+                    Perk) számára, ahol a látogatók megismerhetik a
+                    szolgáltatásokat, információt kaphatnak a programokról,
+                    valamint könnyedén rendelhetnek italokat vagy ételeket egy
+                    reszponzív felületen.
+                  </a>
+                </div>
+              </div>
+              <div
+                class="project-card project-card--centered"
+                data-gallery="../assets/Projekts/TEP/1.webp|../assets/Projekts/TEP/2.webp|../assets/Projekts/TEP/3.webp|../assets/Projekts/TEP/4.webp|../assets/Projekts/TEP/5.webp"
+              >
+                <img
+                  src="../assets/Projekts/TEP/1.webp"
+                  alt="The Eight Pages projekt"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="project-info">
+                  <h3 data-i18n="proj.tep">The Eight Pages</h3>
+                  <p>Java • JavaFX</p>
+                  <a style="display: none" data-i18n="proj.tep.desc">
+                    Egy horror játék, amelyben a játékos célja nyolc elrejtett
+                    lap összegyűjtése egy felfedezhető pályán, miközben
+                    Slenderman elől kell menekülnie. A játék tartalmaz beépített
+                    pályát és egy pályaszerkesztő funkciót is, amely lehetővé
+                    teszi egyedi mappek létrehozását.
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-year">
+            <div class="timeline-dot"></div>
+            <span class="timeline-year-label">2021</span>
+
+            <div class="timeline-projects">
+              <div
+                class="project-card"
+                data-gallery="../assets/Projekts/AKN/1.webp|../assets/Projekts/AKN/2.webp|../assets/Projekts/AKN/3.webp|../assets/Projekts/AKN/4.webp|../assets/Projekts/AKN/5.webp"
+              >
+                <img
+                  src="../assets/Projekts/AKN/1.webp"
+                  alt="Aknakereső"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="project-info">
+                  <h3 data-i18n="proj.minefield">Aknakereső</h3>
+                  <p>HTML • CSS • JavaScript</p>
+                  <a style="display: none" data-i18n="proj.minefield.desc">
+                    A játékban a felhasználó előre elkészített pályákon vagy
+                    saját maga által paraméterezett mappeken játszhat. A
+                    rendszer támogatja a pálya pozícionálását, háttérzene
+                    lejátszását, valamint a játékos eredményeinek pályánkénti
+                    mentését localStorage-ban.
+                  </a>
+                </div>
+              </div>
+              <div
+                class="project-card"
+                data-gallery="../assets/Projekts/HMM/1.webp|../assets/Projekts/HMM/2.webp|../assets/Projekts/HMM/3.webp|../assets/Projekts/HMM/4.webp|../assets/Projekts/HMM/5.webp"
+              >
+                <img
+                  src="../assets/Projekts/HMM/1.webp"
+                  alt="Heroes of Might & Magic projekt"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="project-info">
+                  <h3 data-i18n="proj.hmm">Heroes of Might &amp; Magic</h3>
+                  <p>Java • JavaFX</p>
+                  <a style="display: none" data-i18n="proj.hmm.desc">
+                    Körökre osztott stratégiai játék, amelyben a játékos egy
+                    hőst irányít, fejleszti statjait, varázslatokat vásárol és
+                    egységeket toboroz egy adott kezdőkeretből. A csaták
+                    előkészítése során a játékos taktikai döntéseket hoz az
+                    egységek elhelyezéséről, majd egy körökre bontott
+                    harcrendszer dönti el az összecsapás kimenetelét.
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-year">
+            <div class="timeline-dot"></div>
+            <span class="timeline-year-label">2022</span>
+
+            <div class="timeline-projects">
+              <div
+                class="project-card"
+                data-gallery="../assets/Projekts/TA/1.webp|../assets/Projekts/TA/2.webp|../assets/Projekts/TA/3.webp|../assets/Projekts/TA/4.webp|../assets/Projekts/TA/5.webp"
+              >
+                <img
+                  src="../assets/Projekts/TA/1.webp"
+                  alt="Terepasztal projekt"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="project-info">
+                  <h3 data-i18n="proj.ta">Terepasztal</h3>
+                  <p>Blender • Three.js</p>
+                  <a style="display: none" data-i18n="proj.ta.desc">
+                    Egy interaktív 3D vasútmodell, ahol egy mozgó vonat járja
+                    körbe a pályát. A felhasználó válthat nappali és éjszakai
+                    jelenet között, kapcsolgathatja a világítást, valamint
+                    dönthet arról, hogy a vonat automatikusan haladjon vagy
+                    manuálisan legyen irányítva a terepasztalon elhelyezett
+                    vezérlőkkel.
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-year">
+            <div class="timeline-dot"></div>
+            <span class="timeline-year-label">2023</span>
+
+            <div class="timeline-year">
+              <div class="timeline-dot"></div>
+              <div class="timeline-node-label">
+                <span
+                  class="timeline-node-title"
+                  data-i18n="timeline.bsc.title"
+                >
+                  Programtervező Informatikus BSc megkezdése (Szakváltás)
+                </span>
+                <span class="timeline-node-sub">2023</span>
+              </div>
+            </div>
+
+            <div class="timeline-projects">
+              <div
+                class="project-card"
+                data-gallery="../assets/Projekts/PAI/1.webp|../assets/Projekts/PAI/2.webp"
+              >
+                <img
+                  src="../assets/Projekts/PAI/2.webp"
+                  alt="Paint projekt"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="project-info">
+                  <h3 data-i18n="proj.pai">Paint</h3>
+                  <p>OpenCV • Python</p>
+                  <a style="display: none" data-i18n="proj.pai.desc">
+                    Egy egyszerű rajzolóalkalmazás, amely lehetővé teszi
+                    szabadkézi rajzolást és alapvető grafikai elemek (alakzatok)
+                    elhelyezését. A felhasználó testreszabhatja az ecset méretét
+                    és színét, törölheti a vásznat, valamint mentheti az
+                    elkészült rajzokat.
+                  </a>
+                </div>
+              </div>
+              <div
+                class="project-card"
+                data-gallery="../assets/Projekts/ZEB/2.webp|../assets/Projekts/ZEB/1.webp|../assets/Projekts/ZEB/3.webp|../assets/Projekts/ZEB/4.webp|../assets/Projekts/ZEB/5.webp"
+              >
+                <img
+                  src="../assets/Projekts/ZEB/2.webp"
+                  alt="Zebra detektáló projekt"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="project-info">
+                  <h3 data-i18n="proj.zeb">Zebra detektáló</h3>
+                  <p>OpenCV • Python</p>
+                  <a style="display: none" data-i18n="proj.zeb.desc">
+                    Egy képfeldolgozó alkalmazás, amely zajos képeken is képes
+                    felismerni a zebramintát. A rendszer először elkülöníti a
+                    mintázatot egy fekete-fehér maszkon, majd ezt visszahelyezi
+                    az eredeti képre, ahol piros kiemeléssel jelöli a detektált
+                    területeket.
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-year">
+            <div class="timeline-dot"></div>
+            <span class="timeline-year-label">2024</span>
+
+            <div class="timeline-projects">
+              <div
+                class="project-card"
+                data-gallery="../assets/Projekts/GBA/1.webp|../assets/Projekts/GBA/2.webp|../assets/Projekts/GBA/3.webp|../assets/Projekts/GBA/4.webp|../assets/Projekts/GBA/5.webp"
+              >
+                <img
+                  src="../assets/Projekts/GBA/1.webp"
+                  alt="Galaxy Bowling Center Web projekt"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="project-info">
+                  <h3 data-i18n="proj.gba">Galaxy Bowling Center Web</h3>
+                  <p>Angular • SCSS • TypeScript • Firebase</p>
+                  <a style="display: none" data-i18n="proj.gba.desc">
+                    Modern, reszponzív webalkalmazás egy bowlingközpont számára,
+                    amely a rendszer központi platformjaként szolgál. A
+                    felhasználók böngészhetik a szolgáltatásokat, megtekinthetik
+                    a programokat és egyszerűen foglalhatnak pályát egy
+                    letisztult felületen keresztül. Az alkalmazás Firebase-alapú
+                    backendre épül, amely valós idejű adatkezelést biztosít a
+                    webes és mobilos kliens között.
+                  </a>
+                </div>
+              </div>
+              <div
+                class="project-card"
+                data-gallery="../assets/Projekts/BCA/5.webp|../assets/Projekts/BCA/2.webp|../assets/Projekts/BCA/3.webp|../assets/Projekts/BCA/4.webp|../assets/Projekts/BCA/1.webp"
+              >
+                <img
+                  src="../assets/Projekts/BCA/5.webp"
+                  alt="Galaxy Bowling Center Android projekt"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="project-info">
+                  <h3 data-i18n="proj.bca">Galaxy Bowling Center Android</h3>
+                  <p>Android • Java • Firebase</p>
+                  <a style="display: none" data-i18n="proj.bca.desc">
+                    A webes Galaxy Bowling Center mobilra adaptált változata,
+                    amely ugyanazt a Firebase-alapú backend rendszert használja.
+                    A két platform szorosan összekapcsolt, ahol a felhasználók
+                    mind weben, mind mobilon hozzáférhetnek a szolgáltatásokhoz,
+                    programokhoz és foglalási funkciókhoz egy egységes
+                    adatbázison keresztül.
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-year">
+            <div class="timeline-dot"></div>
+            <span class="timeline-year-label">2025</span>
+
+            <div class="timeline-projects">
+              <div class="timeline-note">
+                <p data-i18n="timeline.2025.note">
+                  Szakdolgozat, szakmai gyakorlat és portfólióprojekt
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-year">
+            <div class="timeline-dot"></div>
+            <div class="timeline-node-label">
+              <span
+                class="timeline-node-title"
+                data-i18n="timeline.degree.title"
+                >Bsc Diploma megszerzése</span
+              >
+              <span class="timeline-node-sub" data-i18n="timeline.degree.sub"
+                >2025</span
+              >
+            </div>
+          </div>
+
+          <div class="timeline-year">
+            <div class="timeline-dot timeline-dot--current"></div>
+            <span class="timeline-year-label">2026</span>
+
+            <div class="timeline-projects">
+              <div
+                class="project-card"
+                data-gallery="../assets/Projekts/TM/1.webp|../assets/Projekts/TM/2.webp|../assets/Projekts/TM/3.webp|../assets/Projekts/TM/4.webp|../assets/Projekts/TM/5.webp"
+              >
+                <img
+                  src="../assets/Projekts/TM/1.webp"
+                  alt="Taskmanager projekt"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="project-info">
+                  <h3 data-i18n="proj.taskmanager">Taskmanager</h3>
+                  <p>
+                    Java • Spring Boot • Spring Security • Spring Data JPA •
+                    MySQL • JWT • JUnit • Mockito
+                  </p>
+                  <a style="display: none" data-i18n="proj.taskmanager.desc">
+                    JWT autentikációval védett feladatkezelő rendszer, amely
+                    teljes életciklust biztosít a feladatok kezeléséhez. A
+                    felhasználók regisztráció és bejelentkezés után
+                    létrehozhatnak, szerkeszthetnek és törölhetnek feladatokat,
+                    amelyeket prioritás, státusz és időpont szerint
+                    rendszerezhetnek. A rendszer fejlett szűrési lehetőségeket,
+                    heti és havi naptárnézetet, valamint angol–magyar nyelvi
+                    támogatást is biztosít.
+                  </a>
+                  <!-- TODO: cseréld ki az URL-t -->
+                  <a
+                    href="https://github.com/IPetoI"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onclick="event.stopPropagation()"
+                    >Git Repository</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- THESIS: slide-based presentation viewer -->
+      <section id="thesis" class="thesis-section reveal">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="section.thesis">Szakdolgozat</h2>
+          <div class="title-underline"></div>
+        </div>
+        <div class="thesis-content">
+          <div class="thesis-gallery">
+            <button class="thesis-arrow thesis-prev" aria-label="Előző dia">
+              ‹
+            </button>
+            <div class="thesis-slide-container">
+              <img
+                src="../assets/Thesis/HU/Slide1.webp"
+                alt="Szakdolgozat dia"
+                class="thesis-img"
+                id="thesisImage"
+                loading="lazy"
+                decoding="async"
+                fetchpriority="low"
+              />
+              <div class="thesis-counter">
+                <span id="thesisCounter">1</span> / 17
+              </div>
+            </div>
+            <button class="thesis-arrow thesis-next" aria-label="Következő dia">
+              ›
+            </button>
+          </div>
+          <p data-i18n="thesis.desc">
+            A szakdolgozat a
+            <span class="highlight">Radon-transzformáció</span> diszkrét
+            implementációinak összehasonlító elemzését végzi képalkotási
+            alkalmazások kontextusában. Két modellt vizsgál: az egyik a képet
+            <span class="highlight"
+              >dobozfüggvények lineáris kombinációjaként</span
+            >, a másik
+            <span class="highlight">körfüggvények paraméteres bázisaként</span>
+            reprezentálja, és ezek Radon-transzformációs eredményeit hasonlítja
+            össze. A különbségeket vizuálisan és numerikusan értékeli
+            <span class="highlight">(MSE, MAE, MaxAE)</span>, valamint a
+            szinogramokból TomoPy gridrec (cosine szűrő) algoritmussal végzett
+            rekonstrukciók pontosságát is elemzi. A számítások CPU és
+            <span class="highlight">Numba CUDA</span> alapú GPU implementációval
+            készültek, ahol a GPU-s megoldás
+            <span class="highlight">jelentős teljesítménynyereséget</span> mutat
+            a <span class="highlight">párhuzamos feldolgozás</span> miatt.
+          </p>
+          <a
+            href="../assets/Thesis/Pető_József_Thesis.pdf"
+            download
+            class="cta-btn"
+            data-i18n="thesis.download"
+          >
+            Szakdolgozat letöltése
+          </a>
+        </div>
+      </section>
+
+      <!-- COURSERA COURSES -->
+      <section id="courses" class="courses-section reveal">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="section.courses">
+            Coursera kurzusok
+          </h2>
+          <div class="title-underline"></div>
+        </div>
+        <div class="course-list">
+          <article class="course-card">
+            <a
+              href="https://www.coursera.org/account/accomplishments/verify/KPVOGCHQWPO2"
+              class="course-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="../assets/Coursera/Java_Microservices.webp"
+                alt="Course Java Microservices with Spring Boot"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="course-info">
+                <h3 data-i18n="course.java.microservices.title">
+                  Java Microservices with Spring Boot
+                </h3>
+                <p
+                  class="course-provider"
+                  data-i18n="course.java.microservices.provider"
+                >
+                  Coursera • Spring Framework • Microservices • Java
+                </p>
+              </div>
+            </a>
+          </article>
+          <article class="course-card">
+            <a
+              href="https://www.coursera.org/account/accomplishments/verify/L7382M7NFOBV"
+              class="course-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="../assets/Coursera/Advanced_Java.webp"
+                alt="Course Advanced Java Concepts"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="course-info">
+                <h3 data-i18n="course.java.advanced.title">
+                  Advanced Java Concepts
+                </h3>
+                <p
+                  class="course-provider"
+                  data-i18n="course.java.advanced.provider"
+                >
+                  Coursera • OOP • Java • JUnit
+                </p>
+              </div>
+            </a>
+          </article>
+          <article class="course-card">
+            <a
+              href="https://www.coursera.org/account/accomplishments/verify/C3ER2PTZ3FFK"
+              class="course-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="../assets/Coursera/Java_Programming_Essentials.webp"
+                alt="Course Java Programming Essentials"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="course-info">
+                <h3 data-i18n="course.java.programming.essentials.title">
+                  Java Programming Essentials
+                </h3>
+                <p
+                  class="course-provider"
+                  data-i18n="course.java.programming.essentials.provider"
+                >
+                  Coursera • Data Structures • Algorithms
+                </p>
+              </div>
+            </a>
+          </article>
+          <article class="course-card">
+            <a
+              href="https://www.coursera.org/account/accomplishments/verify/64UD3MKLK6Y3"
+              class="course-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="../assets/Coursera/Meta_front_end.webp"
+                alt="Course Introduction to Front-End Development"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="course-info">
+                <h3 data-i18n="course.front.end.title">
+                  Introduction to Front-End Development
+                </h3>
+                <p
+                  class="course-provider"
+                  data-i18n="course.front.end.provider"
+                >
+                  Coursera • Technology • Web Development
+                </p>
+              </div>
+            </a>
+          </article>
+          <article class="course-card">
+            <a
+              href="https://www.coursera.org/account/accomplishments/verify/E304NCI44WWD"
+              class="course-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="../assets/Coursera/Meta_html_css.webp"
+                alt="Course HTML and CSS in depth"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="course-info">
+                <h3 data-i18n="course.html.css.title">HTML and CSS in depth</h3>
+                <p class="course-provider" data-i18n="course.html.css.provider">
+                  Coursera • UI • CSS • HTML
+                </p>
+              </div>
+            </a>
+          </article>
+          <article class="course-card">
+            <a
+              href="https://www.coursera.org/account/accomplishments/verify/J3GXP8Q3FBQB"
+              class="course-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="../assets/Coursera/Meta_js.webp"
+                alt="Course Programming with JavaScript"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="course-info">
+                <h3 data-i18n="course.js.title">Programming with JavaScript</h3>
+                <p class="course-provider" data-i18n="course.js.provider">
+                  Coursera • Javascript
+                </p>
+              </div>
+            </a>
+          </article>
+          <article class="course-card">
+            <a
+              href="https://www.coursera.org/account/accomplishments/verify/MU1YO0I72B60"
+              class="course-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="../assets/Coursera/Meta_version_c.webp"
+                alt="Course Version Control"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="course-info">
+                <h3 data-i18n="course.version.control.title">
+                  Version Control
+                </h3>
+                <p
+                  class="course-provider"
+                  data-i18n="course.version.control.provider"
+                >
+                  Coursera • GitHub • Command-Line Interface
+                </p>
+              </div>
+            </a>
+          </article>
+          <article class="course-card">
+            <a
+              href="https://www.coursera.org/account/accomplishments/verify/Y9JWXWVDAPSI"
+              class="course-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="../assets/Coursera/Meta_coding_interview.webp"
+                alt="Course Coding Interview Preparation"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="course-info">
+                <h3 data-i18n="course.coding.interview.title">
+                  Coding Interview Preparation
+                </h3>
+                <p
+                  class="course-provider"
+                  data-i18n="course.coding.interview.provider"
+                >
+                  Coursera • Technical Communication
+                </p>
+              </div>
+            </a>
+          </article>
+          <article class="course-card">
+            <a
+              href="https://coursera.org/verify/specialization/PZSBDKHJL3FK"
+              class="course-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="../assets/Coursera/English-grammar.webp"
+                alt="Course Learn English: Beginning Grammar"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="course-info">
+                <h3 data-i18n="course.english.grammar.title">
+                  Learn English: Beginning Grammar
+                </h3>
+                <p
+                  class="course-provider"
+                  data-i18n="course.english.grammar.provider"
+                >
+                  Coursera • Language Learning • Grammar
+                </p>
+              </div>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="contact-section reveal">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="section.contact">Kapcsolat</h2>
+          <div class="title-underline"></div>
+        </div>
+        <div class="footer-content">
+          <div class="footer-contact">
+            <span>📞</span>
+            <div>
+              <div class="footer-label" data-i18n="label.phone">Telefon</div>
+              <div class="footer-value">+36 70 519 3708</div>
+            </div>
+          </div>
+          <div class="footer-contact">
+            <span>📧</span>
+            <div>
+              <div class="footer-label" data-i18n="label.email">Email</div>
+              <div class="footer-value">petoojozsef@gmail.com</div>
+            </div>
+          </div>
+          <div class="footer-contact">
+            <span>📍</span>
+            <div>
+              <div class="footer-label" data-i18n="label.location">
+                Helyszín
+              </div>
+              <div class="footer-value" data-i18n="location">Magyarország</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="main-footer">
+        <div class="footer-bottom-row">
+          <div class="footer-social">
+            <a
+              href="https://github.com/IPetoI"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-social-link"
+              aria-label="GitHub"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.9.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.87-1.36-3.87-1.36-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.76 2.71 1.25 3.37.96.1-.74.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.4-5.26 5.68.42.36.78 1.08.78 2.18 0 1.57-.02 2.84-.02 3.23 0 .31.21.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"
+                />
+              </svg>
+            </a>
+
+            <!-- TODO: cseréld ki az URL-t -->
+            <a
+              href="https://linkedin.com/in/FELHASZNALONEVED"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-social-link"
+              aria-label="LinkedIn"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                fill="currentColor"
+              >
+                <path
+                  d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45Z"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <div class="footer-copy" data-i18n="footer.copy">
+            © 2026 Pető József
+          </div>
+
+          <button
+            type="button"
+            class="footer-to-top"
+            id="backToTop"
+            aria-label="Vissza a tetejére"
+            data-i18n-label="footer.backToTop"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 19V5M5 12l7-7 7 7" />
+            </svg>
+            <span data-i18n="footer.backToTop">Vissza a tetejére</span>
+          </button>
+        </div>
+      </footer>
+
+      <!-- PROJECT MODAL: lightbox for project images, hidden by default -->
+      <div id="projectModal" class="modal-overlay" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true">
+          <button
+            class="modal-close"
+            aria-label="Bezár"
+            data-i18n-label="modal.close"
+          >
+            ×
+          </button>
+          <div class="modal-body">
+            <div class="modal-content">
+              <div class="modal-media-row">
+                <button
+                  class="modal-arrow prev"
+                  aria-label="Előző"
+                  data-i18n-label="modal.prev"
+                >
+                  ‹
+                </button>
+                <img src="" alt="" class="modal-image" decoding="async" />
+                <button
+                  class="modal-arrow next"
+                  aria-label="Következő"
+                  data-i18n-label="modal.next"
+                >
+                  ›
+                </button>
+              </div>
+              <div class="modal-desc">
+                <h3 class="modal-title"></h3>
+                <p class="modal-text"></p>
+                <p class="modal-description"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

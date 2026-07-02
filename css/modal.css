@@ -1,0 +1,193 @@
+/**
+ * MODAL STYLES
+ * ------------------------------------------------
+* Project image lightbox/modal with keyboard
+ * navigation and gallery paging.
+ */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 6, 15, 0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 100000;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.28s ease,
+    visibility 0.28s ease;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 194, 168, 0.05) 0%,
+    rgba(0, 174, 205, 0.05) 100%
+  );
+  border: 1px solid rgba(0, 85, 78, 0.2);
+  border-radius: 12px;
+  width: min(1000px, 94%);
+  max-width: 1100px;
+  padding: 1rem;
+  box-shadow: 0 10px 30px rgba(8, 84, 97, 0.6);
+  position: relative;
+  transform: scale(0.98);
+  transition: transform 0.28s ease;
+}
+
+.modal-overlay.open .modal {
+  transform: scale(1);
+}
+
+.modal-body {
+  display: block;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: stretch;
+}
+
+.modal-media-row {
+  display: grid;
+  grid-template-columns: 48px 1fr 48px;
+  align-items: center;
+  gap: 1rem;
+}
+
+.modal-image {
+  width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 8px;
+  transition: opacity 0.18s ease;
+}
+
+.modal-image.fading {
+  opacity: 0.2;
+}
+
+.modal-desc {
+  color: #eaeaf5;
+  text-align: left;
+  padding: 0.75rem 0.9rem;
+  background: rgba(5, 10, 20, 0.35);
+  border: 1px solid rgba(0, 85, 78, 0.2);
+  border-radius: 10px;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--color-ocean);
+}
+
+.modal-text {
+  margin: 5px 0;
+  color: #cfcfe6;
+  font-size: 0.95rem;
+}
+
+.modal-description {
+  margin: 5px 0 0 0;
+  color: #cfcfe6;
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+}
+
+.modal-arrow {
+  background: rgba(255, 255, 255, 0.03);
+  border: none;
+  color: var(--color-ocean);
+  font-size: 2rem;
+  padding-bottom: 0.4rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.modal-arrow:hover {
+  opacity: 1;
+  box-shadow: 0 0 4px var(--color-ocean);
+}
+
+.modal-close {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: var(--color-ocean);
+  font-size: 3rem;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.6s ease;
+}
+
+.modal-close:hover {
+  opacity: 1;
+}
+
+/*
+ * Responsive: 600px-768px - navbar and footer alignment
+ */
+@media (min-width: 769px) and (max-width: 900px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .navbar {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar ul {
+    gap: 0.9rem;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .navbar a {
+    font-size: 0.9rem;
+    white-space: nowrap;
+    text-align: center;
+  }
+}
+
+@media (max-width: 870px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+    gap: 1rem;
+  }
+
+  .footer-contact {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
