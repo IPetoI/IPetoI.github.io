@@ -47,7 +47,7 @@ project/
 │   ├── splash.js        # Splash screen animation and removal
 │   ├── modal.js         # Project gallery lightbox
 │   └── thesis.js        # Thesis slide viewer
-├── Images/
+├── assets/
 │   ├── Projekts/        # Project gallery images (.webp)
 │   ├── CV/              # CV PDFs and preview images
 │   ├── Thesis/
@@ -118,7 +118,7 @@ project/
 │   ├── splash.js        # Betöltőképernyő animáció és eltávolítás
 │   ├── modal.js         # Projekt galéria lightbox
 │   └── thesis.js        # Szakdolgozat dia-lapozó
-├── Images/
+├── assets/
 │   ├── Projekts/        # Projekt galéria képek (.webp)
 │   ├── CV/              # Önéletrajz PDF-ek és előnézeti képek
 │   ├── Thesis/

@@ -113,16 +113,34 @@ export function initTitleStagger() {
       return;
     }
 
-    const text = title.textContent;
+    const text = title.textContent || "";
     title.innerHTML = "";
     title.setAttribute("aria-label", text);
 
-    [...text].forEach((char, i) => {
-      const span = document.createElement("span");
-      span.className = "title-char";
-      span.style.setProperty("--char-index", i);
-      span.textContent = char === " " ? "\u00A0" : char;
-      title.appendChild(span);
+    let charIndex = 0;
+    text.split(/(\s+)/).forEach((chunk) => {
+      if (!chunk) {
+        return;
+      }
+
+      if (/\s+/.test(chunk)) {
+        title.appendChild(document.createTextNode(chunk));
+        return;
+      }
+
+      const word = document.createElement("span");
+      word.className = "title-word";
+
+      [...chunk].forEach((char) => {
+        const span = document.createElement("span");
+        span.className = "title-char";
+        span.style.setProperty("--char-index", charIndex);
+        span.textContent = char;
+        word.appendChild(span);
+        charIndex += 1;
+      });
+
+      title.appendChild(word);
     });
 
     title.dataset.staggered = "true";

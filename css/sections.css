@@ -47,6 +47,11 @@
   transition: none;
 }
 
+.title-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 .reveal.visible .title-char {
   animation: char-reveal 0.7s cubic-bezier(0.2, 0.6, 0.3, 2) forwards;
   animation-delay: calc(var(--char-index) * 0.035s);
