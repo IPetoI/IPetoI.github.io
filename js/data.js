@@ -1,4 +1,4 @@
-export const translations = {
+﻿export const translations = {
   hu: {
     "page.title": "Portfólió PJ",
     "meta.description": "Pető József web portfóliója.",
