@@ -88,8 +88,8 @@
     "modal.prev": "Előző",
     "modal.next": "Következő",
     "footer.backToTop": "Vissza a tetejére",
-    "cv.image": "../assets/CV/CV_HU.webp",
-    "cv.download.file": "../assets/CV/Pető_József_CV.pdf",
+    "cv.image": "assets/CV/CV_HU.webp",
+    "cv.download.file": "assets/CV/Pető_József_CV.pdf",
   },
   en: {
     "page.title": "Portfolio PJ",
@@ -179,8 +179,8 @@
     "modal.prev": "Previous",
     "modal.next": "Next",
     "footer.backToTop": "Back to Top",
-    "cv.image": "../assets/CV/CV_EN.webp",
-    "cv.download.file": "../assets/CV/József_Pető_CV.pdf",
+    "cv.image": "assets/CV/CV_EN.webp",
+    "cv.download.file": "assets/CV/József_Pető_CV.pdf",
   },
 };
 
