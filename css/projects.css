@@ -43,14 +43,19 @@
   right: 0;
   height: 4px;
   background: linear-gradient(
-    90deg,
-    var(--color-green) 0%,
-    var(--color-ocean) 100%
+    45deg,
+    var(--color-ocean) 0%,
+    var(--color-teal) 100%
   );
+  opacity: 0.8;
   transform: scaleX(0);
-  transform-origin: left;
+  transform-origin: center;
   transition: transform 0.4s ease;
   z-index: 10;
+}
+
+.project-card:hover::before {
+  transform: scaleX(1);
 }
 
 .project-card img {
@@ -314,6 +319,7 @@
 
   .timeline-dot {
     left: -42px;
+    transform: translateY(4px);
   }
 
   .timeline-projects {
