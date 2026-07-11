@@ -107,6 +107,16 @@
   color: var(--color-teal);
 }
 
+.project-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.project-links span {
+    color: inherit;
+}
+
 /*
  * Scroll reveal animations for project cards and timeline elements.
  * These elements will fade in and slide up when they become visible in the viewport.
@@ -157,7 +167,6 @@
   padding-left: 64px;
 }
 
-/* Függőleges vezetősáv */
 .timeline-line {
   position: absolute;
   top: 6px;

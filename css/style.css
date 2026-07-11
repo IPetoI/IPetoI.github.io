@@ -1,12 +1,12 @@
 /**
- * Modul struktúra:
- * - base.css:     Globális stílusok, változók, splash screen, résecskék
- * - header.css:   Fejléc navigáció, hamburger menü, nyelvváltó
- * - hero.css:     Hero szekció profilképpel és bemutatkozással
- * - sections.css: Tartalmi szekciók (önéletrajz, szakdolgozat, kurzusok, kapcsolat)
- * - projects.css: Projekt kártyák grid és idővonal
- * - footer.css:   Lábjegyzet és social linkek
- * - modal.css:    Projekt kép modal/lightbox
+ * Module structure:
+ * - base.css:     Global styles, variables, splash screen, particles
+ * - header.css:   Header navigation, hamburger menu, language switcher
+ * - hero.css:     Hero section with profile picture and introduction
+ * - sections.css: Content sections (CV, thesis, courses, contact)
+ * - projects.css: Project cards grid and timeline
+ * - footer.css:   Footer and social links
+ * - modal.css:    Project image modal/lightbox
  */
 
 @import url("./base.css");

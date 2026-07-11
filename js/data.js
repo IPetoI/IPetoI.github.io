@@ -31,6 +31,7 @@
     "proj.tep": "The Eight Pages",
     "proj.zeb": "Zebra detektáló",
     "proj.taskmanager": "Teendőtervező",
+    "proj.taskmanager.try": "Próbáld ki",
     "proj.transport.desc":
       "Egy közlekedési adatkezelő rendszer, ahol több város járműhálózata böngészhető és szerkeszthető. A felhasználó kezelheti a járatokat, megállókat és jegy árakat, így egy komplett városi közlekedési struktúra felépíthető és karbantartható.",
     "proj.fri.desc":
@@ -121,7 +122,8 @@
     "proj.ta": "Terrain Table",
     "proj.tep": "The Eight Pages",
     "proj.zeb": "Crosswalk detector",
-    "proj.taskmanager": "Taskmanager",
+    "proj.taskmanager": "Task Manager",
+    "proj.taskmanager.try": "Try it out",
     "proj.transport.desc":
       "A transportation data management system that allows users to browse and edit public transit networks across multiple cities. Users can manage routes, stops and ticket prices, a complete urban transportation structure can be built and maintained.",
     "proj.fri.desc":
